@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RxGenius - Prescription Management System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .logo {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 20px;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 30px;
+            background: #f8fafc;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .feature h3 {
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+        
+        .feature p {
+            color: #64748b;
+            font-size: 14px;
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .deploy-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 15px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #10b981;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #6366f1;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #4f46e5;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+        
+        .tech-stack {
+            margin-top: 50px;
+            padding-top: 50px;
+            border-top: 2px solid #e2e8f0;
+        }
+        
+        .tech-stack h2 {
+            text-align: center;
+            color: #1e293b;
+            margin-bottom: 30px;
+        }
+        
+        .tech-items {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .tech-item {
+            background: #f1f5f9;
+            padding: 15px 30px;
+            border-radius: 8px;
+            color: #475569;
+            font-weight: 500;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+        
+        .github-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #6366f1;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .github-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🧬</div>
+            <h1>RxGenius</h1>
+            <p class="tagline">AI-Powered Prescription Management System</p>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">📊</div>
+                <h3>Dashboard</h3>
+                <p>Real-time statistics and insights at a glance</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">👥</div>
+                <h3>Patient Management</h3>
+                <p>Efficiently manage patient records</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📋</div>
+                <h3>Prescriptions</h3>
+                <p>Generate and manage prescriptions easily</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>AI Powered</h3>
+                <p>Smart assistance for better healthcare</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🖨️</div>
+                <h3>Print Ready</h3>
+                <p>Professional printable prescriptions</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <h3>Responsive</h3>
+                <p>Works on all devices seamlessly</p>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2>Deploy Your Own Instance</h2>
+            <p style="color: #64748b; margin-top: 10px;">Get started in minutes with one-click deployment</p>
+            
+            <div class="deploy-buttons">
+                <a href="https://railway.app/new/template?template=https://github.com/vaibhaviimcal-web/rxgenius-prescription-system" class="btn btn-primary" target="_blank">
+                    🚂 Deploy on Railway
+                </a>
+                <a href="https://vercel.com/new/clone?repository-url=https://github.com/vaibhaviimcal-web/rxgenius-prescription-system" class="btn btn-secondary" target="_blank">
+                    ▲ Deploy on Vercel
+                </a>
+                <a href="https://github.com/vaibhaviimcal-web/rxgenius-prescription-system" class="btn btn-secondary" target="_blank">
+                    📦 View on GitHub
+                </a>
+            </div>
+        </div>
+        
+        <div class="tech-stack">
+            <h2>Built With Modern Technology</h2>
+            <div class="tech-items">
+                <div class="tech-item">Node.js</div>
+                <div class="tech-item">Express</div>
+                <div class="tech-item">EJS</div>
+                <div class="tech-item">Modern CSS</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Made with ❤️ for Healthcare Providers</p>
+            <a href="https://github.com/vaibhaviimcal-web/rxgenius-prescription-system" class="github-link" target="_blank">
+                View Documentation →
+            </a>
+        </div>
+    </div>
+</body>
+</html>
