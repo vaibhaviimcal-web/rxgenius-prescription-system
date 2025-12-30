@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RxGenius - Generate Prescription</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/sidebar') %>
+    
+    <div class="main-content">
+        <%- include('partials/header', { title: 'Generate Prescription', subtitle: 'Create new prescription' }) %>
+        
+        <div class="content-container">
+            <div class="form-container">
+                <form action="/prescriptions/add" method="POST" class="prescription-form">
+                    <div class="form-group">
+                        <label for="patientId">Select Patient</label>
+                        <select id="patientId" name="patientId" required>
+                            <option value="">Choose a patient</option>
+                            <% patients.forEach(patient => { %>
+                                <option value="<%= patient.id %>"><%= patient.name %> (ID: <%= patient.id %>)</option>
+                            <% }); %>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="diagnosis">Diagnosis</label>
+                        <textarea id="diagnosis" name="diagnosis" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="medications-section">
+                        <h3>Medications</h3>
+                        <div id="medications-container">
+                            <div class="medication-item">
+                                <div class="form-group">
+                                    <label>Medication Name</label>
+                                    <input type="text" name="medName" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Dosage</label>
+                                        <input type="text" name="medDosage" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Frequency</label>
+                                        <input type="text" name="medFrequency" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Duration</label>
+                                        <input type="text" name="medDuration" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-secondary" onclick="addMedication()">+ Add Another Medication</button>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <a href="/prescriptions" class="btn-secondary">Cancel</a>
+                        <button type="submit" class="btn-primary">Generate Prescription</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function addMedication() {
+            const container = document.getElementById('medications-container');
+            const newMed = document.createElement('div');
+            newMed.className = 'medication-item';
+            newMed.innerHTML = `
+                <div class="form-group">
+                    <label>Medication Name</label>
+                    <input type="text" name="medName" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Dosage</label>
+                        <input type="text" name="medDosage" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Frequency</label>
+                        <input type="text" name="medFrequency" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Duration</label>
+                        <input type="text" name="medDuration" required>
+                    </div>
+                </div>
+            `;
+            container.appendChild(newMed);
+        }
+    </script>
+</body>
+</html>
