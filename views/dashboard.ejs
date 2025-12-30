@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RxGenius - Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/sidebar') %>
+    
+    <div class="main-content">
+        <%- include('partials/header', { title: 'Dashboard', subtitle: 'Welcome back, manage your prescriptions efficiently' }) %>
+        
+        <div class="dashboard-container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-content">
+                        <h3><%= stats.totalPatients %></h3>
+                        <p>Total Patients</p>
+                        <span class="stat-subtitle">Registered in system</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">📋</div>
+                    <div class="stat-content">
+                        <h3><%= stats.totalPrescriptions %></h3>
+                        <p>Total Prescriptions</p>
+                        <span class="stat-subtitle">Generated prescriptions</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-content">
+                        <h3><%= stats.aiStatus %></h3>
+                        <p>AI Powered</p>
+                        <span class="stat-subtitle">AI assistance enabled</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="recent-section">
+                <div class="section-header">
+                    <div>
+                        <h2>Recent Prescriptions</h2>
+                        <p class="section-subtitle">Latest prescriptions generated</p>
+                    </div>
+                    <a href="/prescriptions" class="btn-link">View All</a>
+                </div>
+                
+                <div class="prescriptions-list">
+                    <% if (recentPrescriptions.length > 0) { %>
+                        <% recentPrescriptions.forEach(prescription => { %>
+                            <div class="prescription-item">
+                                <div class="prescription-info">
+                                    <h4><%= prescription.patientName %></h4>
+                                    <p class="diagnosis"><%= prescription.diagnosis %></p>
+                                </div>
+                                <div class="prescription-date">
+                                    <%= prescription.date %>
+                                </div>
+                            </div>
+                        <% }); %>
+                    <% } else { %>
+                        <p class="no-data">No prescriptions yet</p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
