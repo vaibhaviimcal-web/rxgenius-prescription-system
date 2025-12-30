@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RxGenius - Prescriptions</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/sidebar') %>
+    
+    <div class="main-content">
+        <%- include('partials/header', { title: 'Prescriptions', subtitle: 'View and manage prescriptions' }) %>
+        
+        <div class="content-container">
+            <div class="action-bar">
+                <a href="/prescriptions/add" class="btn-primary">+ Generate Prescription</a>
+            </div>
+            
+            <div class="prescriptions-grid">
+                <% prescriptions.forEach(prescription => { %>
+                    <div class="prescription-card">
+                        <div class="card-header">
+                            <h3><%= prescription.patientName %></h3>
+                            <span class="date-badge"><%= prescription.date %></span>
+                        </div>
+                        <div class="card-body">
+                            <p class="diagnosis-label">Diagnosis:</p>
+                            <p class="diagnosis-text"><%= prescription.diagnosis %></p>
+                            <p class="med-count"><%= prescription.medications.length %> medication(s) prescribed</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="doctor-name"><%= prescription.doctor %></span>
+                            <a href="/prescriptions/<%= prescription.id %>" class="btn-view">View Details</a>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
