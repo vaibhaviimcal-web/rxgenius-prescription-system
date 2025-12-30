@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RxGenius - Add Patient</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/sidebar') %>
+    
+    <div class="main-content">
+        <%- include('partials/header', { title: 'Add Patient', subtitle: 'Register new patient' }) %>
+        
+        <div class="content-container">
+            <div class="form-container">
+                <form action="/patients/add" method="POST" class="patient-form">
+                    <div class="form-group">
+                        <label for="name">Patient Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact">Contact Number</label>
+                        <input type="tel" id="contact" name="contact" required>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <a href="/patients" class="btn-secondary">Cancel</a>
+                        <button type="submit" class="btn-primary">Add Patient</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
