@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RxGenius - Prescription Details</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/sidebar') %>
+    
+    <div class="main-content">
+        <%- include('partials/header', { title: 'Prescription Details', subtitle: 'View prescription information' }) %>
+        
+        <div class="content-container">
+            <div class="prescription-detail">
+                <div class="detail-header">
+                    <h2><%= prescription.patientName %></h2>
+                    <span class="date-badge"><%= prescription.date %></span>
+                </div>
+                
+                <div class="detail-section">
+                    <h3>Diagnosis</h3>
+                    <p><%= prescription.diagnosis %></p>
+                </div>
+                
+                <div class="detail-section">
+                    <h3>Prescribed Medications</h3>
+                    <div class="medications-list">
+                        <% prescription.medications.forEach((med, index) => { %>
+                            <div class="medication-detail">
+                                <h4><%= index + 1 %>. <%= med.name %></h4>
+                                <div class="med-info">
+                                    <p><strong>Dosage:</strong> <%= med.dosage %></p>
+                                    <p><strong>Frequency:</strong> <%= med.frequency %></p>
+                                    <p><strong>Duration:</strong> <%= med.duration %></p>
+                                </div>
+                            </div>
+                        <% }); %>
+                    </div>
+                </div>
+                
+                <div class="detail-footer">
+                    <p><strong>Prescribed by:</strong> <%= prescription.doctor %></p>
+                    <div class="action-buttons">
+                        <a href="/prescriptions" class="btn-secondary">Back to Prescriptions</a>
+                        <button class="btn-primary" onclick="window.print()">Print Prescription</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
