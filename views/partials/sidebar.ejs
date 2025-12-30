@@ -1,0 +1,31 @@
+<div class="sidebar">
+    <div class="logo">
+        <h1>🧬 RxGenius</h1>
+        <p class="tagline">Prescription Management System</p>
+    </div>
+    
+    <nav class="nav-menu">
+        <a href="/" class="nav-item <%= typeof title !== 'undefined' && title === 'Dashboard' ? 'active' : '' %>">
+            <span class="nav-icon">📊</span>
+            <span class="nav-text">Dashboard</span>
+        </a>
+        <a href="/patients" class="nav-item <%= typeof title !== 'undefined' && title === 'Patients' ? 'active' : '' %>">
+            <span class="nav-icon">👥</span>
+            <span class="nav-text">Patients</span>
+        </a>
+        <a href="/prescriptions" class="nav-item <%= typeof title !== 'undefined' && title === 'Prescriptions' ? 'active' : '' %>">
+            <span class="nav-icon">📋</span>
+            <span class="nav-text">Prescriptions</span>
+        </a>
+    </nav>
+    
+    <div class="sidebar-footer">
+        <div class="user-info">
+            <div class="user-avatar">Dr</div>
+            <div class="user-details">
+                <p class="user-name">Dr. Smith</p>
+                <p class="user-role">Healthcare Provider</p>
+            </div>
+        </div>
+    </div>
+</div>
